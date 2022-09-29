@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\HTTP\Controllers\SneakerController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +20,4 @@ Route::get('/', function () {
     return view('welcome');
 });
  
+Route::resource('sneaker', SneakerController::class);
