@@ -43,13 +43,9 @@
             <td>{{ $empleado->estado_civil }}</td>
         </tr>
 
-    </table>
-
-
-
 
         @endforeach
-    </ul>
+    </table>
     
 </body>
 </html>
