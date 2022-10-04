@@ -78,7 +78,7 @@ class EmpleadoController extends Controller
      */
     public function edit(Empleado $empleado)
     {
-        //
+        return view('empleados/empleadosEdit', compact('empleado'));
     }
 
     /**
@@ -90,7 +90,23 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, Empleado $empleado)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'apellidos' => 'required|max:255',
+            'genero' => 'required|max:1|min:1',
+            'telefono' => 'required|max:10|min:10',
+            'calle' => 'required|max:255',
+            'colonia' => 'required|max:255',
+            'municipio' => 'required|max:255',
+            'fecha_nac' =>'required|date',
+            'estado_civil' => 'required|max:255',
+
+        ]);
+
+        //La información viene de empleadosEdit.blade.php y se guarda
+        Empleado::where('id', $empleado->id)->update($request->except('_token', '_method'));
+
+        return redirect('/empleado');
     }
 
     /**
@@ -101,6 +117,8 @@ class EmpleadoController extends Controller
      */
     public function destroy(Empleado $empleado)
     {
-        //
+        //La información viene de empleadosDelete.blade.php y se elimina
+        $empleado->delete();
+        return redirect('/empleado');
     }
 }

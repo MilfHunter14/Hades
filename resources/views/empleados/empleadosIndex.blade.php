@@ -22,6 +22,8 @@
             <th>Municipio</th>
             <th>Fecha de Nacimiento</th>
             <th>Estado Civil</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
 
         @foreach($empleados as $empleado)
@@ -41,6 +43,28 @@
             <td>{{ $empleado->municipio }}</td>
             <td>{{ $empleado->fecha_nac }}</td>
             <td>{{ $empleado->estado_civil }}</td>
+
+            <td>
+                <!--Nos dirigira al metodo edit del controlador -->
+                <a href="/empleado/{{ $empleado->id }}/edit">   
+                Editar
+                </a>
+
+            </td>
+
+            <td> 
+                <!--action lo manda al método DELETE-->
+                <form method="POST" action="/empleado/{{ $empleado->id }}">
+
+                <!-- Nos permite realizar la operación desde html-->
+                @csrf
+                @method('DELETE')
+
+                <input type=submit value="Eliminar">
+
+                </form>
+
+            </td>
         </tr>
 
 
