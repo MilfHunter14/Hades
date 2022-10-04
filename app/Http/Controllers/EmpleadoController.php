@@ -117,7 +117,7 @@ class EmpleadoController extends Controller
      */
     public function destroy(Empleado $empleado)
     {
-        //La información viene de empleadosDelete.blade.php y se elimina
+        //La información viene de index y se elimina
         $empleado->delete();
         return redirect('/empleado');
     }
