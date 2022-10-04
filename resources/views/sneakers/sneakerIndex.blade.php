@@ -19,6 +19,8 @@
             <th>Precio</th>
             <th>Talla</th>
             <th>Stock</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
         @foreach($sneakers as $sneaker)
         <tr>
@@ -32,6 +34,16 @@
             <td>{{ $sneaker->precio }}</td>
             <td>{{ $sneaker->talla }}</td>
             <td>{{ $sneaker->stock }}</td>
+            <td>
+                <a href="/sneaker/{{ $sneaker->id }}/edit">Editar</a>
+            </td>
+            <td>
+                <form action="/sneaker/{{ $sneaker->id }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="Eliminar">
+                </form>
+            </td>
         </tr>
         @endforeach
     </table>

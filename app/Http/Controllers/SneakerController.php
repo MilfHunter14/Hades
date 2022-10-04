@@ -68,7 +68,7 @@ class SneakerController extends Controller
      */
     public function edit(Sneaker $sneaker)
     {
-        //
+        return view('sneakers.sneakerEdit', compact('sneaker'));
     }
 
     /**
@@ -80,7 +80,9 @@ class SneakerController extends Controller
      */
     public function update(Request $request, Sneaker $sneaker)
     {
-        //
+        Sneaker::where('id', $sneaker->id)->update($request->except('_token', '_method'));
+
+        return redirect('/sneaker');
     }
 
     /**
@@ -91,6 +93,8 @@ class SneakerController extends Controller
      */
     public function destroy(Sneaker $sneaker)
     {
-        //
+        $sneaker->delete();
+
+        return redirect('/sneaker'); 
     }
 }
