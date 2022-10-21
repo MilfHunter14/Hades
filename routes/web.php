@@ -3,6 +3,8 @@
 use App\Http\Controllers\EmpleadoController;
 use App\Models\Empleado;
 use Illuminate\Support\Facades\Route;
+use App\HTTP\Controllers\SneakerController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +32,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+ 
+Route::resource('sneaker', SneakerController::class);
