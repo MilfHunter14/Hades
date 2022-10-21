@@ -44,7 +44,7 @@
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">    
-                            <h2 class="text-uppercase text-center mb-5">Agregar Seneaker</h2>
+                            <h2 class="text-uppercase text-center mb-5">Agregar Sneaker</h2>
 
                             <form action="/sneaker" method="POST">
                                 @csrf

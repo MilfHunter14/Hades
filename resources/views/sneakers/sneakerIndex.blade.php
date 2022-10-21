@@ -39,7 +39,7 @@
             <h1>Listado de Sneakers</h1>
             <a class="btn btn-primary" href="/sneaker/create">Crear Nuevo Sneaker</a>
             <br><br>
-            <table class="table" border="1">
+            <table class="table">
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
