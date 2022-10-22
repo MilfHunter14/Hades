@@ -26,6 +26,7 @@ Route::get('/', function () {
  
 Route::resource('empleado', EmpleadoController::class);
 Route::resource('venta', VentaController::class);
+Route::resource('sneaker', SneakerController::class);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
