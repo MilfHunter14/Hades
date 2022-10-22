@@ -1,37 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sneakers</title>
-    <link href="/img/marcas/jordan_blanco.png" rel="icon">
-    <!--Método que le permite darle estilo a las vistas-->
-    @vite(['resources/css/bootstrap.css', 'resources/js/bootstrap1.js', 
-    'resources/css/style.css', 'resources/js/main.js'])
-</head>
-<body>
+<x-head titulo="Sneakers">
 
-    <header id="header" class="fixed-top">
-        <div class="container d-flex align-items-center">
-
-            <h1 class="logo me-auto"><a href="{{ url('/') }}">HADES</a></h1>
-                    <nav id="navbar" class="navbar">
-                    <ul>
-                        <li><a class="nav-link scrollto active" href="{{ url('/') }}">Inicio</a></li>
-                        <li class="dropdown"><a href="#"><span>Gestión de Recursos</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/empleado">Agregar Empleado</a></li>
-                            <li><a href="/sneaker">Agregar Sneaker</a></li>
-                        </ul>
-                    </ul>
-                    <i class="bi bi-list mobile-nav-toggle">≡</i>
-                </nav>
-            <!-- .navbar -->  
-        </div>
-    </header>
-    <!-- End Header -->
-
+    
+    <x-navbar></x-navbar>
      <!-- ======= Hero Section ======= -->
     <section class="table-responsive-md">
 
@@ -45,7 +17,7 @@
                     <th>Nombre</th>
                     <th>Marca</th>
                     <th>Precio</th>
-                    <th>Talla</th>
+                    <th>Talla (cm)</th>
                     <th>Stock</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
@@ -77,5 +49,5 @@
             </table>
         </div>
     </section>
-</body>
+</x-head>
 </html>
