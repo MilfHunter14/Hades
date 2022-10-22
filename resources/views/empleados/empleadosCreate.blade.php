@@ -2,7 +2,7 @@
 <html lang="en">
 <x-head titulo="Registrar Empleado">
 
-    <x-navbar>
+    <x-navbar></x-navbar>
         
         <section class="vh-100 bg-image" style="background-image: url('/img/empleados.jpg')">
         
@@ -112,8 +112,6 @@
                 </div>
             </div>
         </section>
-    </x-navbar>
-
 
 </x-head>
 </html>

@@ -2,7 +2,8 @@
 <html lang="en">
 <x-head titulo="Empleados">
 
-    <x-navbar>
+    <x-navbar></x-navbar>
+
 
         <!-- ======= Hero Section ======= -->
         <section class="table-responsive-md">
@@ -73,7 +74,6 @@
             </div>
 
         </section><!-- End Hero -->
-    </x-navbar>
  
 </x-head>
 </html>
