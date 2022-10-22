@@ -1,8 +1,12 @@
 <?php
 
+/* Son necesarias para conocer y añadir las rutas */
+use App\Http\Controllers\EmpleadoController;
+use App\Models\Empleado;
+use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SneakerController;
-use App\Models\Sneaker;
+use App\HTTP\Controllers\SneakerController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +23,9 @@ Route::get('/', function () {
     //CUCEI
     return view('index');
 });
-
+ 
+Route::resource('empleado', EmpleadoController::class);
+Route::resource('venta', VentaController::class);
 Route::resource('sneaker', SneakerController::class);
 Route::middleware([
     'auth:sanctum',

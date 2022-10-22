@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sneaker extends Model
+class Venta extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombre',
-    'marca', 'precio', 'talla', 'stock'];
-
     public $timestamps = false;
+    protected $fillable = ['fecha_venta', 'forma_pago'];
 }
