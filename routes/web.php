@@ -1,7 +1,9 @@
 <?php
 
+/* Son necesarias para conocer y añadir las rutas */
 use App\Http\Controllers\EmpleadoController;
 use App\Models\Empleado;
+use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,7 @@ Route::get('/', function () {
 });
  
 Route::resource('empleado', EmpleadoController::class);
+Route::resource('venta', VentaController::class);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
