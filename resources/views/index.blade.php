@@ -1,51 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
+<x-head titulo="HADES">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>HADES</title>
-
-  <!-- Favicons -->
-  <link href="/img/marcas/jordan_blanco.png" rel="icon">
-  @vite(['resources/css/bootstrap.css', 'resources/js/bootstrap1.js', 
-    'resources/css/style.css', 'resources/js/main.js'])
-
-  <!-- =======================================================
-  * Template Name: Arsha - v4.8.0
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-      <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top">
-      <div class="container d-flex align-items-center">
-
-      <h1 class="logo me-auto"><a href="{{ url('/') }}">HADES</a></h1>
-        
-        <nav id="navbar" class="navbar">
-            <ul>
-              <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
-              <li><a class="nav-link scrollto" href="#clients">Marcas</a></li>
-              <li><a class="nav-link scrollto" href="#about">Acerca de nosotros</a></li>
-              <li><a class="nav-link scrollto" href="#services">Sucursales</a></li>
-              <li><a class="nav-link scrollto" href="#portfolio">Productos</a></li>
-              <li class="dropdown"><a href="#"><span>Gestión de Recursos</span> <i class="bi bi-chevron-down"></i></a>
-              <ul>
-                <li><a href="/empleado">Agregar Empleado</a></li>
-                <li><a href="/sneaker">Agregar Sneaker</a></li>
-              </ul>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle">≡</i>
-        </nav><!-- .navbar -->
-
-      </div>
-    </header><!-- End Header -->
-
+  <x-navbarMain>
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
@@ -72,27 +29,27 @@
         <div class="row" data-aos="zoom-in">
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="img/marcas/nike.png" class="img-fluid" alt="">
+            <img src="img/marcas/nike.png" class="img-fluid" alt="Nike">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="img/marcas/adidas.png" class="img-fluid" alt="">
+            <img src="img/marcas/adidas.png" class="img-fluid" alt="Adidas">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="img/marcas/jordan.png" class="img-fluid" alt="">
+            <img src="img/marcas/jordan.png" class="img-fluid" alt="Jordan">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="img/marcas/reebok.png" class="img-fluid" alt="">
+            <img src="img/marcas/reebok.png" class="img-fluid" alt="Reebok">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="img/marcas/vans.png" class="img-fluid" alt="">
+            <img src="img/marcas/vans.png" class="img-fluid" alt="Vans">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="img/marcas/puma.png" class="img-fluid" alt="">
+            <img src="img/marcas/puma.png" class="img-fluid" alt="Puma">
           </div>
 
         </div>
@@ -350,28 +307,13 @@
 
       </div>
     </section><!-- End Portfolio Section -->
-
-    <!-- ======= Footer ======= -->
-  <footer id="footer" style="background:black;">
-
-
-<div class="container footer-bottom clearfix">
-  <div class="copyright" >
-    &copy; Copyright <strong><span>INNVICTUS</span></strong>. Todos los derechos reservados
-  </div>
-  <div class="credits">
-    Diseñado en <a href="https://bootstrapmade.com/">BootstrapMade</a>
-  </div>
-</div>
-</footer>
-    <!-- End Footer -->
+    </x-navbarMain>
+    <x-footer></x-footer>
 
 <div id="preloader"></div>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-
-</body>
-
+</x-head>
 </html>
 
 
