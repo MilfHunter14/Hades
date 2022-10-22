@@ -35,7 +35,7 @@
     </header>
         <!-- End Header -->
 
-    <section class="vh-100 bg-image" style="background-image: url('/img/empleados.jpg')">
+    <section class="vh-100 bg-image" style="background-image: url('/img/createSneaker.jpg')">
     
         <div class="separar">
             <div class="mask d-flex align-items-center h-100 gradient-custom-3">
@@ -58,28 +58,28 @@
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="marca">Marca</label>
                                     <input class="form-control form-control-lg" type="text" name="marca" id="marca">
-                                    @error('nombre')
+                                    @error('marca')
                                         <i>{{ $message}}</i>
                                     @enderror
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="precio">Precio</label>
                                     <input class="form-control form-control-lg" type="integer" name="precio" id="precio">
-                                    @error('nombre')
+                                    @error('precio')
                                         <i>{{ $message}}</i>
                                     @enderror
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="talla">Talla</label>
                                     <input class="form-control form-control-lg" type="float" name="talla" id="talla">
-                                    @error('nombre')
+                                    @error('talla')
                                         <i>{{ $message}}</i>
                                     @enderror
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="stock">Stock</label>
                                     <input class="form-control form-control-lg" type="integer" name="stock" id="stock">
-                                    @error('nombre')
+                                    @error('stock')
                                         <i>{{ $message}}</i>
                                     @enderror
                                 </div>
