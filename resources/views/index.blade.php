@@ -2,7 +2,7 @@
 <html lang="es">
 <x-head titulo="HADES">
 
-  <x-navbarMain>
+  <x-navbarMain></x-navbarMain>
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
@@ -307,7 +307,6 @@
 
       </div>
     </section><!-- End Portfolio Section -->
-    </x-navbarMain>
     <x-footer></x-footer>
 
 <div id="preloader"></div>

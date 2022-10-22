@@ -2,7 +2,7 @@
 <html lang="en">
 <x-head titulo="Mostrar Empleado">
     
-    <x-navbar>
+    <x-navbar></x-navbar>
 
         <section class="h-100 bg-white">
         <div class="container py-5 h-100">
@@ -96,7 +96,5 @@
             </div>
         </div>
         </section>
-    </x-navbar>
-    
 </x-head>
 </html>
