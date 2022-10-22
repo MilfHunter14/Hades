@@ -96,6 +96,5 @@
             </div>
         </div>
         </section>
-
 </x-head>
 </html>

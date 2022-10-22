@@ -12,5 +12,4 @@ class Sneaker extends Model
     'marca', 'precio', 'talla', 'stock'];
 
     public $timestamps = false;
-
 }
