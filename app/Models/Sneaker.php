@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Sneaker extends Model
 {
     use HasFactory;
+    protected $fillable = ['nombre',
+    'marca', 'precio', 'talla', 'stock'];
+
+    public $timestamps = false;
+
 }

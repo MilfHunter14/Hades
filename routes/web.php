@@ -5,6 +5,8 @@ use App\Http\Controllers\EmpleadoController;
 use App\Models\Empleado;
 use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
+use App\HTTP\Controllers\SneakerController;
+
 
 /*
 |--------------------------------------------------------------------------
