@@ -19,35 +19,35 @@
                                 @method('PATCH')
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="nombre">Nombre</label>
-                                    <input class="form-control form-control-lg" type="text" name="nombre" id="nombre" value="{{ $sneaker->nombre }}">
+                                    <input class="form-control form-control-lg" type="text" name="nombre" id="nombre" value="{{ old('nombre') ?? $sneaker->nombre }}">
                                     @error('nombre')
                                         <i>{{ $message}}</i>
                                     @enderror
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="marca">Marca</label>
-                                    <input class="form-control form-control-lg" type="text" name="marca" id="marca" value="{{ $sneaker->marca}}">
+                                    <input class="form-control form-control-lg" type="text" name="marca" id="marca" value="{{ old('marca') ?? $sneaker->marca }}">
                                     @error('marca')
                                         <i>{{ $message}}</i>
                                     @enderror
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="precio">Precio</label>
-                                    <input class="form-control form-control-lg" type="integer" name="precio" id="precio" value="{{ $sneaker->precio }}">
+                                    <input class="form-control form-control-lg" type="integer" name="precio" id="precio" value="{{ old('precio') ?? $sneaker->precio }}">
                                     @error('precio')
                                         <i>{{ $message}}</i>
                                     @enderror
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="talla">Talla</label>
-                                    <input class="form-control form-control-lg" type="text" name="talla" id="talla" value="{{ $sneaker->talla }}">
+                                    <input class="form-control form-control-lg" type="text" name="talla" id="talla" value="{{ old('talla') ?? $sneaker->talla }}">
                                     @error('talla')
                                         <i>{{ $message}}</i>
                                     @enderror
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="stock">Stock</label>
-                                    <input class="form-control form-control-lg" type="integer" name="stock" id="stock" value="{{ $sneaker->stock }}">
+                                    <input class="form-control form-control-lg" type="integer" name="stock" id="stock" value="{{ old('nombre') ?? $sneaker->stock }}">
                                     @error('stock')
                                         <i>{{ $message}}</i>
                                     @enderror
