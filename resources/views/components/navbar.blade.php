@@ -10,6 +10,7 @@
                     <ul>
                         <li><a href="/empleado">Agregar Empleado</a></li>
                         <li><a href="/sneaker">Agregar Sneaker</a></li>
+                        <li><a href="/venta">Agregar Venta</a></li>
                     </ul>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle">≡</i>

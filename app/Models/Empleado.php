@@ -13,4 +13,12 @@ class Empleado extends Model
     'municipio', 'fecha_nac', 'estado_civil'];
     //protected $guarded =['id'];
 
+    //Un empleado puede hacer muchas ventas
+    public function ventas()
+    {
+        return $this->hasMany(Venta::class);
+    }
+
+
 }
+
