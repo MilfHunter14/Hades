@@ -12,4 +12,10 @@ class Sneaker extends Model
     'marca', 'precio', 'talla', 'stock'];
 
     public $timestamps = false;
+
+    //Un sneaker puede ser vendido muchas veces
+    public function ventas()
+    {
+        return $this->hasMany(Venta::class);
+    }
 }
