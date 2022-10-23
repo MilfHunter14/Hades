@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Venta;
+use App\Models\Empleado;
+use App\Models\Sneaker;
 use Illuminate\Http\Request;
 
 class VentaController extends Controller
@@ -14,7 +16,9 @@ class VentaController extends Controller
      */
     public function index()
     {
+        //Obtenemos las variables de los modelos que estan en venta y los mandamos a la vista*/
         $ventas = Venta::all();
+
         return view('ventas/ventasIndex', compact('ventas'));
     }
 
@@ -25,7 +29,10 @@ class VentaController extends Controller
      */
     public function create()
     {
-        return view('ventas/ventasCreate');
+        //Obtenemos la información de los modelos para poderlos presentar en Create
+        $empleados = Empleado::all();
+        $sneakers = Sneaker::all();
+        return view('ventas/ventasCreate', compact('empleados', 'sneakers'));
     }
 
     /**
@@ -37,11 +44,13 @@ class VentaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'empleado_id' => 'required',
+            'sneaker_id' => 'required', 
             'fecha_venta' =>'required|date',
             'forma_pago' => 'required|max:255',
         ]);
 
-        $request->merge(['empleado_id', /* 'sneaker_id' */]);
+        /* $request->merge(['empleado_id', 'sneaker_id']); */
 
         Venta::create($request->all());
 
@@ -56,6 +65,9 @@ class VentaController extends Controller
      */
     public function show(Venta $venta)
     {
+        //Obtenemos la información de los modelos para poderlos presentar en Create
+        $empleados = Empleado::all();
+        $sneakers = Sneaker::all();
         return view('ventas/ventasShow', compact('venta'));
     }
 
@@ -84,7 +96,8 @@ class VentaController extends Controller
             'forma_pago' => 'required|max:255',
         ]);
 
-        $request->merge(['empleado_id', /* 'sneaker_id' */]);
+        //Añadimos las llaves foraneas
+        $request->merge(['empleado_id', 'sneaker_id']);
 
 
         //La información viene de empleadosEdit.blade.php y se guarda
@@ -102,7 +115,7 @@ class VentaController extends Controller
     public function destroy(Venta $venta)
     {
         //La información viene de index y se elimina
-        $empleado->delete();
-        return redirect('/empleado');
+        $venta->delete();
+        return redirect('/venta');
     }
 }
