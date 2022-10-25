@@ -10,7 +10,7 @@
 
             <div class="container">
     
-                <h1>Listado de Ventas</h1>
+                <h1>Listado de Ventas de Empleados</h1>
 
                 <a class="btn btn-primary" href="/venta/create">Registrar Venta</a>
 

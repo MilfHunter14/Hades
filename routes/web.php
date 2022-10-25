@@ -25,7 +25,7 @@ Route::get('/', function () {
 });
  
 Route::resource('empleado', EmpleadoController::class);
-Route::resource('venta', VentaController::class);
+Route::resource('venta', VentaController::class)->parameters(['venta' => 'venta']);
 Route::resource('sneaker', SneakerController::class);
 Route::middleware([
     'auth:sanctum',

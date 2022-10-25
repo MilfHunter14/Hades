@@ -4,7 +4,7 @@
 
 <x-navbar></x-navbar>
         
-        <section class="vh-100 bg-image" style="background-image: url('/img/empleados.jpg')">
+        <section class="vh-100 bg-image" style="background-image: url('/img/createVenta.jpg')">
         
             <div class="separar">
                 <div class="mask d-flex align-items-center h-100 gradient-custom-3">

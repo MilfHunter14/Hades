@@ -65,10 +65,11 @@ class VentaController extends Controller
      */
     public function show(Venta $venta)
     {
+        
         //Obtenemos la información de los modelos para poderlos presentar en Create
         $empleados = Empleado::all();
         $sneakers = Sneaker::all();
-        return view('ventas/ventasShow', compact('venta'));
+        return view('ventas/ventasShow', compact('venta','empleados','sneakers'));
     }
 
     /**
@@ -79,7 +80,10 @@ class VentaController extends Controller
      */
     public function edit(Venta $venta)
     {
-        return view('ventas/ventasEdit', compact('venta'));
+    
+        $empleados = Empleado::all();
+        $sneakers = Sneaker::all();
+        return view('ventas/ventasEdit', compact('venta', 'empleados', 'sneakers'));
     }
 
     /**
