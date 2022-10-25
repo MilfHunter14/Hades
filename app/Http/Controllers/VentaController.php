@@ -96,12 +96,14 @@ class VentaController extends Controller
     public function update(Request $request, Venta $venta)
     {
         $request->validate([
+            'empleado_id' => 'required',
+            'sneaker_id' => 'required',
             'fecha_venta' =>'required|date',
             'forma_pago' => 'required|max:255',
         ]);
 
-        //Añadimos las llaves foraneas
-        $request->merge(['empleado_id', 'sneaker_id']);
+         //Añadimos las llaves foraneas
+         $request->merge(['empleado_id', 'sneaker_id']);
 
 
         //La información viene de empleadosEdit.blade.php y se guarda

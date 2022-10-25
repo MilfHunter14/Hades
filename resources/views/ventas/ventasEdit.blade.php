@@ -16,8 +16,8 @@
                             <div class="card-body p-5">    
                             <h2 class="text-uppercase text-center mb-5">Editar Venta</h2>
 
-                            <form method="POST" action="/venta">
-
+                            <form method="POST" action="/venta/{{ $venta->id}} ">
+                            
                             @csrf
                             @method('PATCH')
                                 <div class="form-outline mb-4">
@@ -58,7 +58,7 @@
                                 <label class="form-label" for="forma_pago">Método de pago: </label><br/>
                                 <select name="forma_pago" id="forma_pago" class="form-control form-control-lg" required>
                                     <option selected disabled>Seleccione una opción</option>
-                                    <option value="{{ $venta->id }}" {{ $venta->id == $venta->id ? 'selected' : ''}}>{{$venta->forma_pago}}</option>
+                                    <option value="{{old('forma_pago') ?? $venta->forma_pago}}" {{ $venta->forma_pago == $venta->forma_pago ? 'selected' : ''}}>{{$venta->forma_pago}}</option>
                                     <option value="Efectivo">Efectivo</option>
                                     <option value="Tarjeta">Tarjeta</option>
                                     <option value="Transferencia">Transferencia bancaria</option>
