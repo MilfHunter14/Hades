@@ -25,7 +25,7 @@
                                 <select name="empleado_id" id="empleado_id" class="form-control form-control-lg" required>
                                     <option selected disabled>Seleccione una opción</option>
                                     @foreach($empleados as $empleado)
-                                    <option value="{{ $empleado->id }}" {{ $venta->empleado->id == $empleado->id ? 'selected' : '' }}>{{$venta->empleado->nombre}}</option>
+                                    <option value="{{ $empleado->id }}" {{ $venta->empleado->id == $empleado->id ? 'selected' : '' }}>{{$empleado->nombre}}</option>
                                     @endforeach
                                 </select>
                                 @error('empleado_id')
@@ -36,9 +36,9 @@
                                 <div class="form-outline mb-4">
                                 <label class="form-label" for="sneaker_id">Modelo: </label></br>
                                 <select name="sneaker_id" d="sneaker_id" class="form-control form-control-lg" required>
-                                    <option selected disabled>Seleccione una opción</option>
+                                    <option selected disable>Seleccione una opción</option>
                                     @foreach($sneakers as $sneaker)
-                                    <option value="{{ $sneaker->id }}" {{ $venta->sneaker->id == $sneaker->id ? 'selected' : ''}}>{{$venta->sneaker->nombre}}</option>
+                                    <option value="{{ $sneaker->id }}" {{ $venta->sneaker->id == $sneaker->id ? 'selected' : ''}}>{{$sneaker->nombre}}</option>
                                     @endforeach
                                 </select>
                                 @error('sneaker_id')

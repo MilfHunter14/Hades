@@ -103,7 +103,7 @@ class VentaController extends Controller
         ]);
 
          //Añadimos las llaves foraneas
-         $request->merge(['empleado_id', 'sneaker_id']);
+         //$request->merge(['empleado_id', 'sneaker_id']);
 
 
         //La información viene de empleadosEdit.blade.php y se guarda
