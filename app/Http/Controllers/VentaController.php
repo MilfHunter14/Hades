@@ -65,10 +65,11 @@ class VentaController extends Controller
      */
     public function show(Venta $venta)
     {
+        
         //Obtenemos la información de los modelos para poderlos presentar en Create
         $empleados = Empleado::all();
         $sneakers = Sneaker::all();
-        return view('ventas/ventasShow', compact('venta'));
+        return view('ventas/ventasShow', compact('venta','empleados','sneakers'));
     }
 
     /**
@@ -79,7 +80,10 @@ class VentaController extends Controller
      */
     public function edit(Venta $venta)
     {
-        return view('ventas/ventasEdit', compact('venta'));
+    
+        $empleados = Empleado::all();
+        $sneakers = Sneaker::all();
+        return view('ventas/ventasEdit', compact('venta', 'empleados', 'sneakers'));
     }
 
     /**
@@ -92,12 +96,14 @@ class VentaController extends Controller
     public function update(Request $request, Venta $venta)
     {
         $request->validate([
+            'empleado_id' => 'required',
+            'sneaker_id' => 'required',
             'fecha_venta' =>'required|date',
             'forma_pago' => 'required|max:255',
         ]);
 
-        //Añadimos las llaves foraneas
-        $request->merge(['empleado_id', 'sneaker_id']);
+         //Añadimos las llaves foraneas
+         //$request->merge(['empleado_id', 'sneaker_id']);
 
 
         //La información viene de empleadosEdit.blade.php y se guarda
