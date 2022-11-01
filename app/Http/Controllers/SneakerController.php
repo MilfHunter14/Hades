@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Sneaker;
 use Illuminate\Http\Request;
 
+
 class SneakerController extends Controller
 {
     /**

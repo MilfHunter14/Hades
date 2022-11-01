@@ -117,7 +117,6 @@ class EmpleadoController extends Controller
      */
     public function destroy(Empleado $empleado)
     {
-        //La información viene de index y se elimina
         $status='';
         $count=0;
 
@@ -132,7 +131,7 @@ class EmpleadoController extends Controller
             $empleado->delete();
             $status = "Empleado eliminado correctamente";
         }
-        //dd($status)
+        //dd($status);
         return redirect('/empleado')->with('status', $status);
     }
 }
