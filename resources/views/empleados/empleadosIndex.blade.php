@@ -13,7 +13,7 @@
                 <h1>Listado de Empleados</h1>
 
                 <a class="btn btn-primary" href="/empleado/create">Registrar Empleado</a>
-
+                <br><br>
                 <table class="table">
                     <tr>
                         <th>Nombre</th>
@@ -28,7 +28,9 @@
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
-
+                    @if (session('status'))
+                        <input type="text" name="status" value="{{session('status')}}" class="form-control" disabled>
+                    @endif
                     @foreach($empleados as $empleado)
                     <tr>
                         <td>

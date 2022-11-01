@@ -118,7 +118,21 @@ class EmpleadoController extends Controller
     public function destroy(Empleado $empleado)
     {
         //La información viene de index y se elimina
-        $empleado->delete();
-        return redirect('/empleado');
+        $status='';
+        $count=0;
+
+        // Contamos los registros en las relaciones
+        $count+=count($empleado->ventas);
+        // Comprobamos si existen registros 
+        if($count>0) {
+            $status =  'No puedes eliminar este empleado porque esta ligado a una venta, verifica el listado de ventas.';
+            
+        } else {
+            // si no hay registros eliminamos
+            $empleado->delete();
+            $status = "Empleado eliminado correctamente";
+        }
+        //dd($status)
+        return redirect('/empleado')->with('status', $status);
     }
 }
