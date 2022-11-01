@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\HTTP\Controllers\SneakerController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

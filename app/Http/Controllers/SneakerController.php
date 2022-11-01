@@ -109,7 +109,7 @@ class SneakerController extends Controller
         $count+=count($sneaker->ventas);
         // Comprobamos si existen registros 
         if($count>0) {
-            $status =  'No puedes eliminar este Sneaker porque esta ligado a una venta, verifica el listado de ventas.';
+            $status =  'No puedes eliminar este sneaker porque esta ligado a una venta, verifica el listado de ventas.';
             
         } else {
             // si no hay registros eliminamos
