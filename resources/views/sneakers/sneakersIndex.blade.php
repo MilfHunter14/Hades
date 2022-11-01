@@ -22,6 +22,9 @@
                     <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>
+                @if (session('status'))
+                    <input type="text" name="status" value="{{session('status')}}" class="form-control" disabled>
+                @endif
                 @foreach($sneakers as $sneaker)
                 <tr>
                     <td>{{ $sneaker->id }}</td>
@@ -42,6 +45,7 @@
                             @csrf
                             @method('DELETE')
                             <input class="btn btn-danger" type="submit" value="Eliminar">
+                            
                         </form>
                     </td>
                 </tr>
