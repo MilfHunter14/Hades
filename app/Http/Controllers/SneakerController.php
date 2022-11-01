@@ -68,13 +68,7 @@ class SneakerController extends Controller
      */
     public function edit(Sneaker $sneaker)
     {
-        $request->validate([
-            'nombre' => 'required | max:255',
-            'marca' => 'required | max:255',
-            'precio' => 'integer | min:1000' ,
-            'talla' => 'required | max:255',
-            'stock' => 'integer | min:0',
-        ]);
+        
         return view('sneakers.sneakersEdit', compact('sneaker'));
     }
 
@@ -87,6 +81,13 @@ class SneakerController extends Controller
      */
     public function update(Request $request, Sneaker $sneaker)
     {
+        $request->validate([
+            'nombre' => 'required | max:255',
+            'marca' => 'required | max:255',
+            'precio' => 'integer | min:1000' ,
+            'talla' => 'required | max:255',
+            'stock' => 'integer | min:0',
+        ]);
         Sneaker::where('id', $sneaker->id)->update($request->except('_token', '_method'));
 
         return redirect('/sneaker');
@@ -100,8 +101,21 @@ class SneakerController extends Controller
      */
     public function destroy(Sneaker $sneaker)
     {
-        $sneaker->delete();
+        $status='';
+        $count=0;
 
-        return redirect('/sneaker'); 
+        // Contamos los registros en las relaciones
+        $count+=count($sneaker->ventas);
+        // Comprobamos si existen registros 
+        if($count>0) {
+            $status =  'No puedes eliminar este Sneaker porque esta ligado a una venta, verifica el listado de ventas.';
+            
+        } else {
+            // si no hay registros eliminamos
+            $sneaker->delete();
+            $status = "Sneaker eliminado correctamente";
+        }
+        //dd($status);
+        return redirect('/sneaker')->with('status', $status);
     }
 }
