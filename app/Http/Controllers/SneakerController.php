@@ -15,7 +15,7 @@ class SneakerController extends Controller
     public function index()
     {
         $sneakers = Sneaker::all();
-        return view('sneakers.sneakerIndex', compact('sneakers'));
+        return view('sneakers.sneakersIndex', compact('sneakers'));
     }
 
     /**
@@ -25,7 +25,7 @@ class SneakerController extends Controller
      */
     public function create()
     {
-        return view('sneakers.sneakerCreate');
+        return view('sneakers.sneakersCreate');
     }
 
     /**
@@ -57,7 +57,7 @@ class SneakerController extends Controller
      */
     public function show(Sneaker $sneaker)
     {
-        return view('sneakers.sneakerShow', compact('sneaker'));
+        return view('sneakers.sneakersShow', compact('sneaker'));
     }
 
     /**
@@ -68,7 +68,14 @@ class SneakerController extends Controller
      */
     public function edit(Sneaker $sneaker)
     {
-        return view('sneakers.sneakerEdit', compact('sneaker'));
+        $request->validate([
+            'nombre' => 'required | max:255',
+            'marca' => 'required | max:255',
+            'precio' => 'integer | min:1000' ,
+            'talla' => 'required | max:255',
+            'stock' => 'integer | min:0',
+        ]);
+        return view('sneakers.sneakersEdit', compact('sneaker'));
     }
 
     /**

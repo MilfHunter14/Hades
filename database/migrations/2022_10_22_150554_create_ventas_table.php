@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('empleado_id')->constrained();
-            $table->foreignId('sneaker_id')->constrained();
+            $table->foreignId('empleado_id')->constrained()->onDelete('cascade');
+            $table->foreignId('sneaker_id')->constrained()->onDelete('cascade');
             $table->date('fecha_venta');
             $table->string('forma_pago');
             
