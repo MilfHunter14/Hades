@@ -13,9 +13,9 @@ class Sneaker extends Model
 
     public $timestamps = false;
 
-    //Un sneaker puede ser vendido muchas veces
+    //Muchos sneakers puede ser vendido en muchas ventas
     public function ventas()
     {
-        return $this->hasMany(Venta::class);
+        return $this->belongsToMany(Venta::class);
     }
 }

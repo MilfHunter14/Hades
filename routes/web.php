@@ -23,6 +23,7 @@ use App\HTTP\Controllers\SneakerController;
 Route::get('/', function () {
     //CUCEI
     return view('index');
+    //return view('welcome');
 });
  
 Route::resource('empleado', EmpleadoController::class);
@@ -37,4 +38,3 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-

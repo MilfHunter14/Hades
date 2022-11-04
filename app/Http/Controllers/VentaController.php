@@ -22,7 +22,6 @@ class VentaController extends Controller
     {
         //Obtenemos las variables de los modelos que estan en venta y los mandamos a la vista*/
         $ventas = Venta::all();
-
         return view('ventas/ventasIndex', compact('ventas'));
     }
 
@@ -48,15 +47,18 @@ class VentaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'empleado_id' => 'required',
-            'sneaker_id' => 'required', 
+            'empleado_id' => 'required', 
             'fecha_venta' =>'required|date',
             'forma_pago' => 'required|max:255',
         ]);
 
         /* $request->merge(['empleado_id', 'sneaker_id']); */
 
-        Venta::create($request->all());
+        $venta = Venta::create($request->all());
+
+        //$venta se ira a la funcion de sneakers(muchos a muchos)
+        //El attach() permite recibir un solo id o un arreglo  de id
+        $venta->sneakers()->attach($request->sneakers_id);
 
         return redirect('/venta');
     }
