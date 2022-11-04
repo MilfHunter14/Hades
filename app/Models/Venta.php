@@ -9,7 +9,7 @@ class Venta extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['empleado_id', 'sneaker_id','fecha_venta', 'forma_pago'];
+    protected $fillable = ['empleado_id', 'fecha_venta', 'forma_pago'];
 
     //Una venta puede ser hecha por muchas empleados
     public function empleado()
@@ -17,10 +17,10 @@ class Venta extends Model
         return $this->belongsTo(Empleado::class);
     }
 
-    //Un sneaker puede ser vendido por muchas empleados
-    public function sneaker()
+    //Muchos sneakers puede ser vendido en muchas ventas
+    public function sneakers()
     {
-        return $this->belongsTo(Sneaker::class);
+        return $this->belongsToMany(Sneaker::class);
     }
 
 }

@@ -36,7 +36,8 @@
 
                                 <div class="form-outline mb-4">
                                 <label class="form-label" for="sneaker_id">Modelo: </label></br>
-                                <select name="sneaker_id" d="sneaker_id" class="form-control form-control-lg" required>
+                                <!--Los corchetes hacen referencia a que se enviara un arreglo-->
+                                <select name="sneakers_id[]" multiple class="form-control form-control-lg" required>
                                     <option selected disabled>Seleccione una opción</option>
                                     @foreach($sneakers as $sneaker)
                                         <option value="{{ $sneaker->id }}">{{$sneaker->nombre}}</option>
