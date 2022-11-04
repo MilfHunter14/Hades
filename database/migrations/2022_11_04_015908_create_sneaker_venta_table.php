@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ventas', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('empleado_id')->constrained()->onDelete('cascade');
-            $table->date('fecha_venta');
-            $table->string('forma_pago');
-            
+        Schema::create('sneaker_venta', function (Blueprint $table) {
+            $table->foreignId('sneaker_id')->constrained();
+            $table->foreignId('venta_id')->constrained();
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ventas');
+        Schema::dropIfExists('sneaker_venta');
     }
 };

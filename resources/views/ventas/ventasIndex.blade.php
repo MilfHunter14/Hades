@@ -19,7 +19,7 @@
                         <th>ID de la Venta</th>
                         <th>Nombre</th>
                         <th>Apellidos</th>
-                        <th>Modelo</th>
+                        <th>Modelo</th> 
                         <th>Fecha de la Venta</th>
                         <th>Tipo de Pago</th>
                         <th>Editar</th>
@@ -38,8 +38,17 @@
                         <!--LLAVES FORANEAS -->
                         <td>{{ $venta->empleado->nombre }}</td>
                         <td>{{ $venta->empleado->apellidos }}</td>
-                        <td>{{ $venta->sneaker->nombre }}</td>
                         <!--FIN LLAVES FORANEAS -->
+                        
+
+                        <!--RELACIÓN MUCHOS A MUCHOS -->
+                        <td>
+                        @foreach($venta->sneakers as $sneaker)
+                            {{ $sneaker->nombre }}</br>
+                        @endforeach
+                        </td>
+                         <!--FIN RELACIÓN MUCHOS A MUCHOS -->
+                        
                         <td>{{ $venta->fecha_venta }}</td>
                         <td>{{ $venta->forma_pago }}</td>
                     
