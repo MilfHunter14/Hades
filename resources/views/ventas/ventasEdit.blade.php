@@ -35,10 +35,12 @@
 
                                 <div class="form-outline mb-4">
                                 <label class="form-label" for="sneaker_id">Modelo: </label></br>
-                                <select name="sneaker_id" d="sneaker_id" class="form-control form-control-lg" required>
+                                <select name="sneakers_id[]" multiple value="{{ old('sneaker_id') }}" class="form-control form-control-lg" required>
                                     <option selected disable>Seleccione una opción</option>
                                     @foreach($sneakers as $sneaker)
-                                    <option value="{{ $sneaker->id }}" {{ $venta->sneaker->id == $sneaker->id ? 'selected' : ''}}>{{$sneaker->nombre}}</option>
+                                    <!-- El pluck hace un listado de una columna en forma de colección, pero para acceder a los datos necesitamos convertir esa colección a un arreglo, 
+                                    con array search podemos buscar un único valor en un arreglo, toArray es un método el cual se le puede concatenar a la búsqueda para convertirlos objetos a un arrgelo puro-->
+                                    <option value="{{ $sneaker->id }}" {{ array_search($sneaker->id, $venta->sneakers->pluck('id')->toArray()) !== false ? 'selected' : ''}}>{{$sneaker->nombre}}</option>
                                     @endforeach
                                 </select>
                                 @error('sneaker_id')
