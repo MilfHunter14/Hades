@@ -103,7 +103,6 @@ class VentaController extends Controller
     {
         $request->validate([
             'empleado_id' => 'required',
-            'sneaker_id' => 'required',
             'fecha_venta' =>'required|date',
             'forma_pago' => 'required|max:255',
         ]);
@@ -113,8 +112,11 @@ class VentaController extends Controller
 
 
         //La información viene de empleadosEdit.blade.php y se guarda
-        Venta::where('id', $venta->id)->update($request->except('_token', '_method'));
+        Venta::where('id', $venta->id)->update($request->except('_token', '_method', 'sneakers_id'));
 
+        //Sincroniza el arreglo recibido de la base de datos
+        $venta->sneakers()->sync($request->sneakers_id); 
+        
         return redirect('/venta');
     }
 
@@ -126,8 +128,12 @@ class VentaController extends Controller
      */
     public function destroy(Venta $venta)
     {
-        //La información viene de index y se elimina
+        //Elimina la relación entre el sneaker y la venta.
+        $venta->sneakers()->detach();
+        
+        //La información viene de index y se elimina.
         $venta->delete();
+        
         return redirect('/venta');
     }
 }
