@@ -46,7 +46,7 @@ class EmpleadoController extends Controller
             'nombre' => 'required|max:255',
             'apellidos' => 'required|max:255',
             'genero' => 'required|max:1|min:1',
-            'telefono' => 'required|max:10|min:10',
+            'telefono' => 'required|digits:10|numeric',
             'calle' => 'required|max:255',
             'colonia' => 'required|max:255',
             'municipio' => 'required|max:255',
