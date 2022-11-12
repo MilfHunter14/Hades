@@ -48,7 +48,7 @@
 
                                 <div class="form-outline mb-4">
                                 <label class="form-label" for="telefono">Teléfono: </label></br>
-                                <input type="text" class="form-control form-control-lg" name="telefono" id="telefono" autocomplete="off" min=10 max=10 required value="{{old('telefono')}}">
+                                <input type="text" class="form-control form-control-lg" name="telefono" id="telefono" autocomplete="off" required value="{{old('telefono')}}" maxlength="10">
                                 @error('telefono')
                                     <i>{{ $message}}</i>
                                 @enderror
