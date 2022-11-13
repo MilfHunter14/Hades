@@ -6,15 +6,20 @@
 
 
         <!-- ======= Hero Section ======= -->
-        <section class="table-responsive-md">
+        <section>
 
             <div class="container">
-    
-                <h1>Listado de Empleados</h1>
 
+            <div class="separar">
+                <h1 style="text-align: center">Listado de Empleados</h1>
+            </div>
+
+            <div class="separar">
                 <a class="btn btn-primary" href="/empleado/create">Registrar Empleado</a>
+            </div>
                 
-                <table class="table">
+            <div class="separar">
+                <table class="table-responsive-md table">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -78,7 +83,6 @@
                     @endforeach
                 </table>
             </div>
-
         </section><!-- End Hero -->
  
 </x-head>
