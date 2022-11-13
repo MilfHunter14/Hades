@@ -9,12 +9,16 @@
         <section class="table-responsive-md">
 
             <div class="container">
-    
-                <h1>Listado de Ventas de Empleados</h1>
+            <div class="separar">
+                <h1 style="text-align: center">Listado de Ventas de Empleados</h1>
+            </div>
 
+            <div class="separar">
                 <a class="btn btn-primary" href="/venta/create">Registrar Venta</a>
+            </div>
 
-                <table class="table">
+            <div class="separar">
+                <table class="table table-responsive-md">
                     <thead>
                         <tr>
                             <th>ID de la Venta</th>

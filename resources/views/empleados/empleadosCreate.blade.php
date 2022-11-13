@@ -3,17 +3,20 @@
 <x-head titulo="Registrar Empleado">
 
     <x-navbar></x-navbar>
-        
+
         <section class="vh-100 bg-image" style="background-image: url('/img/empleados.jpg')">
         
             <div class="separar">
                 <div class="mask d-flex align-items-center h-100 gradient-custom-3">
                     <div class="container h-100">
-                    <a class="btn btn-dark" style="background-color:black" href="/empleado">← Regresar</a>
+                    <div class="separar"> 
+                        <a class="btn btn-dark" style="background-color:black" href="/empleado">← Regresar</a>
+                    </div>
                     <div class="row d-flex justify-content-center align-items-center h-100">
                         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                         <div class="card" style="border-radius: 15px;">
-                            <div class="card-body p-5">    
+                            <div class="card-body p-5">   
+                             
                             <h2 class="text-uppercase text-center mb-5">Registrar Empleado</h2>
 
                             <form method="POST" action="/empleado">
@@ -113,6 +116,6 @@
                 </div>
             </div>
         </section>
-
-</x-head>
+    </x-head>
+        
 </html>

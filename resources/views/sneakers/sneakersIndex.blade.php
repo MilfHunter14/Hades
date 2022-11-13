@@ -5,13 +5,20 @@
     
     <x-navbar></x-navbar>
      <!-- ======= Hero Section ======= -->
-    <section class="table-responsive-md">
+    <section>
 
         <div class="container">
-            <h1>Listado de Sneakers</h1>
+        <div class="separar">
+            <h1 style="text-align: center">Listado de Sneakers</h1>
+        </div>
+
+        <div class="separar">
             <a class="btn btn-primary" href="/sneaker/create">Crear Nuevo Sneaker</a>
-            <br><br>
-            <table class="table">
+        </div>
+
+        <div class="separar">
+            <table class="table table-responsive-md">
+            <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
@@ -22,10 +29,12 @@
                     <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>
+            </thead>
                 @if (session('status'))
                     <input type="text" name="status" value="{{session('status')}}" class="form-control" disabled>
                 @endif
                 @foreach($sneakers as $sneaker)
+                <tbody>
                 <tr>
                     <td>{{ $sneaker->id }}</td>
                     <td>
@@ -49,6 +58,7 @@
                         </form>
                     </td>
                 </tr>
+                </tbody>
                 @endforeach
             </table>
         </div>
