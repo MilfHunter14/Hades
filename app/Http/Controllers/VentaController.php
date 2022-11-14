@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Venta;
 use App\Models\Empleado;
 use App\Models\Sneaker;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class VentaController extends Controller
 {
@@ -52,8 +55,8 @@ class VentaController extends Controller
             'forma_pago' => 'required|max:255',
         ]);
 
-        /* $request->merge(['empleado_id', 'sneaker_id']); */
-
+        //Agregamos el user que esta logeado
+        $request->merge(['user_id' => Auth::id()]);
         $venta = Venta::create($request->all());
 
         //$venta se ira a la funcion de sneakers(muchos a muchos)
@@ -86,6 +89,10 @@ class VentaController extends Controller
      */
     public function edit(Venta $venta)
     {
+        //Si el usuario loggeado no creo la venta, no podra editarla
+        if (! Gate::allows('edita-venta', $venta)) {
+            abort(403);
+        }
     
         $empleados = Empleado::all();
         $sneakers = Sneaker::all();
@@ -128,6 +135,11 @@ class VentaController extends Controller
      */
     public function destroy(Venta $venta)
     {
+        //Si el usuario loggeado no creo la venta, no podrá eliminarla
+        if (! Gate::allows('elimina-venta', $venta)) {
+            abort(403);
+        }
+
         //Elimina la relación entre el sneaker y la venta.
         $venta->sneakers()->detach();
         
