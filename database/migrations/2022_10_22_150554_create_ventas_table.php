@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('empleado_id')->constrained()->onDelete('cascade');
             $table->date('fecha_venta');
             $table->string('forma_pago');
+            $table->foreignId('user_id')->constrained();
             
         });
     }
