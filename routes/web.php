@@ -29,6 +29,10 @@ Route::get('/', function () {
 Route::resource('empleado', EmpleadoController::class);
 Route::resource('venta', VentaController::class)->parameters(['venta' => 'venta']);
 Route::resource('sneaker', SneakerController::class);
+/* Añadimos las rutas necesarias paraa acceder a los métodos y vistas de nustros SoftDeletes */
+Route::get('/ventasPapelera', [VentaController::class, 'ventasPapelera']);
+Route::get('/ventas/{id}/ventasRestore', [VentaController::class, 'ventasRestore']);
+Route::delete('/ventas/{id}/ventasDelete', [VentaController::class, 'ventasDelete']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

@@ -10,13 +10,11 @@
 
             <div class="container">
             <div class="separar">
-                <h1 style="text-align: center">Listado de Ventas de Empleados</h1>
+                <h1 style="text-align: center">Papelera de Ventas</h1>
             </div>
 
-            <div class="separar d-flex">
-                <a class="btn btn-primary" href="/venta/create">Registrar Venta</a>
-                <!-- Agregamos el botón que nos redirige a la vista de Papelera -->
-                <a class="btn btn-primary ms-auto"  href="/ventasPapelera">Papelera</a>
+            <div class="separar"> 
+                <a class="btn btn-dark" style="background-color:black" href="/venta">← Regresar</a>
             </div>
 
             <div class="separar">
@@ -29,7 +27,7 @@
                             <th>Modelo</th> 
                             <th>Fecha de la Venta</th>
                             <th>Tipo de Pago</th>
-                            <th>Editar</th>
+                            <th>Restaurar</th>
                             <th>Eliminar</th>    
                         </tr>
                     </thead>
@@ -61,16 +59,16 @@
                             <td>{{ $venta->forma_pago }}</td>
                         
                             <td>
-                                <!--Nos dirigira al metodo edit del controlador -->
-                                <a class="btn btn-warning" href="/venta/{{ $venta->id }}/edit">   
-                                Editar
+                                <!--Nos dirigira al metodo ventasRestore del controlador -->
+                                <a class="btn btn-success" href="/ventas/{{ $venta->id }}/ventasRestore">   
+                                Restaurar
                                 </a>
 
                             </td>
 
                             <td> 
-                                <!--action lo manda al método DELETE-->
-                                <form method="POST" action="/venta/{{ $venta->id }}">
+                                <!--action lo manda al métodoventasDelete-->
+                                <form method="POST" action="/ventas/{{ $venta->id }}/ventasDelete">
 
                                     <!-- Nos permite realizar la operación desde html-->
                                     @csrf

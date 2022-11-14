@@ -148,4 +148,24 @@ class VentaController extends Controller
         
         return redirect('/venta');
     }
+
+    /* Agregamos las funciones con las cuales nestros softDeletes podrán funcionar de manera correcta */
+    public function ventasPapelera(){
+        $ventas = Venta::onlyTrashed()->get();
+        return view('ventas/ventasPapelera', compact('ventas'));
+    }
+
+    public function ventasRestore($id){
+        $venta = Venta::withTrashed()->find($id);
+        $venta->restore();
+
+        return redirect('/venta');
+    }
+
+    public function ventasDelete($id){
+        $venta = Venta::withTrashed()->find($id);
+        $venta->forceDelete();
+
+        return redirect('/ventasPapelera');
+    }
 }

@@ -19,7 +19,8 @@ return new class extends Migration
             $table->date('fecha_venta');
             $table->string('forma_pago');
             $table->foreignId('user_id')->constrained();
-            
+            /* Creamos una columna nueva que almacenará los datos previamente eliminados */
+            $table->softDeletes();
         });
     }
 
