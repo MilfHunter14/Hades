@@ -15,7 +15,9 @@
             </div>
 
             <div class="separar">
-                <a class="btn btn-primary" href="/empleado/create">Registrar Empleado</a>
+                <a class="btn btn-primary" href="/empleado/create">
+                    <i class="fa-solid fa-user-plus"></i> Registrar Empleado
+                </a>
             </div>
                 
             <div class="separar">
@@ -60,7 +62,7 @@
                             <td>
                                 <!--Nos dirigira al metodo edit del controlador -->
                                 <a class="btn btn-warning" href="/empleado/{{ $empleado->id }}/edit">   
-                                Editar
+                                    <i class="fa-solid fa-pencil"></i> Editar
                                 </a>
 
                             </td>
@@ -73,7 +75,7 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <input type=submit class="btn btn-danger" value="Eliminar">
+                                    <button type=submit class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Eliminar</button>
                                 </form>
 
                             </td>

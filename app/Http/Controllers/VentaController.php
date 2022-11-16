@@ -24,7 +24,9 @@ class VentaController extends Controller
     public function index()
     {
         //Obtenemos las variables de los modelos que estan en venta y los mandamos a la vista*/
-        $ventas = Venta::all();
+        /* $ventas = Venta::all(); */
+        /* With hará una consulta por cada relación en lugar de hacer consultas registro por registro */
+        $ventas = Venta::with('empleado', 'sneakers', 'user')->get();
         return view('ventas/ventasIndex', compact('ventas'));
     }
 

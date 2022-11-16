@@ -14,7 +14,9 @@
             </div>
 
             <div class="separar"> 
-                <a class="btn btn-dark" style="background-color:black" href="/venta">← Regresar</a>
+                <a class="btn btn-dark" style="background-color:black" href="/venta">
+                    <i class="fa-solid fa-circle-arrow-left"></i> Regresar
+                </a>
             </div>
 
             <div class="separar">
@@ -61,7 +63,7 @@
                             <td>
                                 <!--Nos dirigira al metodo ventasRestore del controlador -->
                                 <a class="btn btn-success" href="/ventas/{{ $venta->id }}/ventasRestore">   
-                                Restaurar
+                                    <i class="fa-solid fa-trash-can-arrow-up"></i> Restaurar
                                 </a>
 
                             </td>
@@ -74,7 +76,7 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <input type=submit class="btn btn-danger" value="Eliminar">
+                                    <button type=submit class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Eliminar</button>
                                 </form>
 
                             </td>

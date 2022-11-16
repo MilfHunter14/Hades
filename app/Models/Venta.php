@@ -29,7 +29,7 @@ class Venta extends Model
     //Una venta puede pertenecer a uno o muchos usuarios
     public function user()
     {
-        return this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
 
     }
 

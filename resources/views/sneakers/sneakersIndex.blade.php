@@ -13,7 +13,9 @@
         </div>
 
         <div class="separar">
-            <a class="btn btn-primary" href="/sneaker/create">Crear Nuevo Sneaker</a>
+            <a class="btn btn-primary" href="/sneaker/create">
+                <i class="fa-solid fa-circle-plus"></i> Crear Sneaker
+            </a>
         </div>
 
         <div class="separar">
@@ -47,13 +49,15 @@
                     <td>{{ $sneaker->talla }}</td>
                     <td>{{ $sneaker->stock }}</td>
                     <td>
-                        <a class="btn btn-warning" href="/sneaker/{{ $sneaker->id }}/edit">Editar</a>
+                        <a class="btn btn-warning" href="/sneaker/{{ $sneaker->id }}/edit">
+                            <i class="fa-solid fa-pencil"></i> Editar
+                        </a>
                     </td>
                     <td>
                         <form action="/sneaker/{{ $sneaker->id }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <input class="btn btn-danger" type="submit" value="Eliminar">
+                            <button type=submit class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Eliminar</button>
                             
                         </form>
                     </td>

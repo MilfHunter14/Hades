@@ -8,7 +8,9 @@
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col">
-            <a class="btn btn-dark" style="background-color:black" href="/empleado">← Listado de Empleados</a>
+            <a class="btn btn-dark" style="background-color:black" href="/empleado">
+                <i class="fa-solid fa-circle-arrow-left"></i> Regresar Listado de Empleados
+            </a>
                 <div class="separar">
                 <div class="row g-0">
                     <div class="col-xl-6 d-none d-xl-block">

@@ -14,9 +14,13 @@
             </div>
 
             <div class="separar d-flex">
-                <a class="btn btn-primary" href="/venta/create">Registrar Venta</a>
+                <a class="btn btn-primary" href="/venta/create">
+                <i class="fa-solid fa-file-circle-plus"></i> Registrar Venta
+                </a>
                 <!-- Agregamos el botón que nos redirige a la vista de Papelera -->
-                <a class="btn btn-primary ms-auto"  href="/ventasPapelera">Papelera</a>
+                <a class="btn btn-secondary ms-auto"  href="/ventasPapelera">
+                    <i class="fa-solid fa-box-archive"></i> Papelera
+                </a>
             </div>
 
             <div class="separar">
@@ -63,7 +67,7 @@
                             <td>
                                 <!--Nos dirigira al metodo edit del controlador -->
                                 <a class="btn btn-warning" href="/venta/{{ $venta->id }}/edit">   
-                                Editar
+                                <i class="fa-solid fa-pencil"></i> Editar
                                 </a>
 
                             </td>
@@ -76,7 +80,7 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <input type=submit class="btn btn-danger" value="Eliminar">
+                                    <button type=submit class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Eliminar</button>
                                 </form>
 
                             </td>

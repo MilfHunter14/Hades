@@ -16,6 +16,7 @@
     <!-- Template Main CSS File -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('librerias/Font/css/all.css')}}">
     
   
 

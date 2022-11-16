@@ -6,7 +6,9 @@
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col">
-            <a class="btn btn-dark" style="background-color:black" href="/sneaker">← Listado de Empleados</a>
+            <a class="btn btn-dark" style="background-color:black" href="/sneaker">
+                <i class="fa-solid fa-circle-arrow-left"></i> Lista de Sneakers
+            </a>
                 <div class="separar">
                 <div class="row g-0">
                     <div class="col-xl-6 d-none d-xl-block">
