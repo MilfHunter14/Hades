@@ -10,7 +10,7 @@ class Empleado extends Model
     use HasFactory;
     public $timestamps = false;
     protected $fillable = ['nombre', 'apellidos', 'genero', 'telefono', 'calle', 'colonia', 
-    'municipio', 'fecha_nac', 'estado_civil'];
+    'municipio', 'fecha_nac', 'estado_civil', 'email'];
     //protected $guarded =['id'];
 
     //Un empleado puede hacer muchas ventas

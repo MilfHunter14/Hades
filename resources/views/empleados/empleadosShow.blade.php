@@ -89,6 +89,14 @@
                             <input type="text" id="form3Example1n" class="form-control form-control-lg" value="{{ $empleado->estado_civil }}" disabled />   
                             </div>
                         </div>
+
+                        <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                            <label class="form-label" for="form3Example1m">Email</label>
+                            <input type="text" id="form3Example1m" class="form-control form-control-lg" value="{{ $empleado->email }}" disabled />
+                            </div>
+                        </div>
                         </div>
 
                     </div>

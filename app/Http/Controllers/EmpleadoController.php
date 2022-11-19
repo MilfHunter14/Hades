@@ -52,7 +52,7 @@ class EmpleadoController extends Controller
             'municipio' => 'required|max:255',
             'fecha_nac' =>'required|date',
             'estado_civil' => 'required|max:255',
-
+            'email' => ['required', 'email']
         ]);
    
         Empleado::create($request->all());
@@ -104,7 +104,7 @@ class EmpleadoController extends Controller
             'municipio' => 'required|max:255',
             'fecha_nac' =>'required|date',
             'estado_civil' => 'required|max:255',
-
+            'email' => ['required', 'email']
         ]);
 
         //La información viene de empleadosEdit.blade.php y se guarda

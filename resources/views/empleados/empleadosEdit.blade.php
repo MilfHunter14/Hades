@@ -103,6 +103,14 @@
                                     </select>
                                 </div>
 
+                                <div class="form-outline mb-4">
+                                <label class="form-label"for="municipio">Email: </label></br>
+                                <input type="email" class="form-control form-control-lg" name="email" id="email" autocomplete="off" required value="{{old('email') ?? $empleado->email}}">
+                                @error('email')
+                                    <i>{{ $message}}</i>
+                                @enderror
+                                </div>
+
                                 <div class="d-flex justify-content-center">
                                 <button type=submit
                                     class="btn btn-warning btn-block btn-lg gradient-custom-4 text-body"><i class="fa-regular fa-circle-check"></i> Guardar</button>

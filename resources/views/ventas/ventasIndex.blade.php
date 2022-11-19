@@ -33,6 +33,8 @@
                             <th>Modelo</th> 
                             <th>Fecha de la Venta</th>
                             <th>Tipo de Pago</th>
+                            <th>Email</th>
+                            <th>Confirmación</th>
                             <th>Editar</th>
                             <th>Eliminar</th>    
                         </tr>
@@ -63,6 +65,14 @@
                             
                             <td>{{ $venta->fecha_venta }}</td>
                             <td>{{ $venta->forma_pago }}</td>
+
+                            <td>{{ $venta->empleado->email }}</td>
+                            
+                            <td>
+                                <a class="btn btn-info" href="/email/ventaRegistrada/{{ $venta->id }}">
+                                    <i class="fa-regular fa-paper-plane"></i> Enviar
+                                </a>
+                            </td>
                         
                             <td>
                                 <!--Nos dirigira al metodo edit del controlador -->

@@ -33,6 +33,7 @@ Route::resource('sneaker', SneakerController::class);
 Route::get('/ventasPapelera', [VentaController::class, 'ventasPapelera']);
 Route::get('/ventas/{id}/ventasRestore', [VentaController::class, 'ventasRestore']);
 Route::delete('/ventas/{id}/ventasDelete', [VentaController::class, 'ventasDelete']);
+Route::get('/email/ventaRegistrada/{venta}', [VentaController::class, 'notificacionVenta']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

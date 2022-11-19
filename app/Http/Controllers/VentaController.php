@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\Venta;
 use App\Models\Empleado;
 use App\Models\Sneaker;
+use App\Mail\VentaRegistrada;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -169,5 +171,12 @@ class VentaController extends Controller
         $venta->forceDelete();
 
         return redirect('/ventasPapelera');
+    }
+
+    public function notificacionVenta(Venta $venta)
+    {
+        Mail::to($venta->empleado->email)->send(new VentaRegistrada($venta));
+
+        return back();
     }
 }

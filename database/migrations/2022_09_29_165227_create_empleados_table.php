@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('municipio');
             $table->date('fecha_nac');
             $table->string('estado_civil');
+            $table->string('email');
         });
     }
 
