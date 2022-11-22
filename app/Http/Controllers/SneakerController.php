@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sneaker;
+use App\Models\Archivo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,7 +51,26 @@ class SneakerController extends Controller
             'stock' => 'integer | min:0',
         ]);
 
-        Sneaker::create($request->all());
+        $sneaker = Sneaker::create($request->all());
+        /* Sneaker::create($request->all()); */
+
+        // Imágenes //
+        //Verifica si el archivo es válido
+        if ($request->file('imagen')->isValid())
+        {
+            //Nos devolverá el path de la ubicación del archivo
+            $ubicacion = $request->imagen->store('public');
+            //Crea una instancia
+            $imagen = new Archivo();
+            //Se le asigna la ubicación
+            $imagen->ubicacion = $ubicacion;
+            //Se le asigna el nombre original
+            $imagen->nombre_original = $request->imagen->getClientOriginalName();
+
+            //Se guarda la instancia
+            $sneaker->archivos()->save($imagen);
+        }
+
 
         return redirect('/sneaker');
     }
@@ -74,7 +94,6 @@ class SneakerController extends Controller
      */
     public function edit(Sneaker $sneaker)
     {
-        
         return view('sneakers.sneakersEdit', compact('sneaker'));
     }
 
@@ -94,6 +113,23 @@ class SneakerController extends Controller
             'talla' => 'required | max:255',
             'stock' => 'integer | min:0',
         ]);
+        
+        // Imágenes //
+        //Verifica si el archivo es válido
+        if ($request->file('imagen')->isValid())
+            {
+                //Nos devolverá el path de la ubicación del archivo
+                $ubicacion = $request->imagen->store('public');
+                //Crea una instancia
+                $archivo = new Archivo();
+                //Se le asigna la ubicación
+                $archivo->ubicacion = $ubicacion;
+                //Se le asigna el nombre original
+                $archivo->nombre_original = $request->imagen->getClientOriginalName();
+
+                //Se guarda la instancia
+                $archivo->update(['imagen' => $sneaker->archivos()]);
+            }
         Sneaker::where('id', $sneaker->id)->update($request->except('_token', '_method'));
 
         return redirect('/sneaker');
@@ -107,6 +143,7 @@ class SneakerController extends Controller
      */
     public function destroy(Sneaker $sneaker)
     {
+        
         $status='';
         $count=0;
 
@@ -117,6 +154,9 @@ class SneakerController extends Controller
             $status =  'No puedes eliminar este sneaker porque esta ligado a una venta, verifica el listado de ventas.';
             
         } else {
+            /* Quitamos la relación que existe entre la tabla Sneaker y el id de archivos
+            Para que a nivel de base de datos no nos arroje error de llave violada */
+            $sneaker->archivos()->detach();
             // si no hay registros eliminamos
             $sneaker->delete();
             $status = "Sneaker eliminado correctamente";
@@ -125,3 +165,5 @@ class SneakerController extends Controller
         return redirect('/sneaker')->with('status', $status);
     }
 }
+
+

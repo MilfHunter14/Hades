@@ -18,4 +18,10 @@ class Sneaker extends Model
     {
         return $this->belongsToMany(Venta::class);
     }
+
+    //Un sneaker puede tener una o muchos archivos
+    public function archivos()
+    {
+        return $this->hasMany(Archivo::class);
+    }
 }

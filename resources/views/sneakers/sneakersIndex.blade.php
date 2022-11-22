@@ -28,6 +28,7 @@
                     <th>Precio</th>
                     <th>Talla (cm)</th>
                     <th>Stock</th>
+                    <th>Imagen</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>
@@ -49,12 +50,17 @@
                     <td>{{ $sneaker->talla }}</td>
                     <td>{{ $sneaker->stock }}</td>
                     <td>
+                    @foreach($sneaker->archivos as $archivo)
+                        <img src= "{{ \Storage::url($archivo->ubicacion)}}" width="130px" height="100px">
+                    @endforeach
+                    </td>
+                    <td>
                         <a class="btn btn-warning" href="/sneaker/{{ $sneaker->id }}/edit">
                             <i class="fa-solid fa-pencil"></i> Editar
                         </a>
                     </td>
                     <td>
-                        <form action="/sneaker/{{ $sneaker->id }}" method="POST">
+                        <form class="form-eliminar" action="/sneaker/{{ $sneaker->id }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type=submit class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Eliminar</button>

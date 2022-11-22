@@ -19,7 +19,7 @@
                         <div class="card-body p-5">    
                             <h2 class="text-uppercase text-center mb-5">Editar Sneaker</h2>
 
-                            <form action="/sneaker/{{ $sneaker->id }}" method="POST">
+                            <form action="/sneaker/{{ $sneaker->id }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
                                 <div class="form-outline mb-4">
@@ -54,6 +54,13 @@
                                     <label class="form-label" for="stock">Stock</label>
                                     <input class="form-control form-control-lg" type="integer" name="stock" id="stock" value="{{ old('nombre') ?? $sneaker->stock }}">
                                     @error('stock')
+                                        <i>{{ $message}}</i>
+                                    @enderror
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="imagen">Imagen</label>
+                                    <input class="form-control form-control-lg" type="file" name="imagen" id="imagen" value="{{ old('imagen') }}">
+                                    @error('imagen')
                                         <i>{{ $message}}</i>
                                     @enderror
                                 </div>

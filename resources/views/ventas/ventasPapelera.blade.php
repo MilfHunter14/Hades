@@ -70,7 +70,7 @@
 
                             <td> 
                                 <!--action lo manda al métodoventasDelete-->
-                                <form method="POST" action="/ventas/{{ $venta->id }}/ventasDelete">
+                                <form class="form-papelera" method="POST" action="/ventas/{{ $venta->id }}/ventasDelete">
 
                                     <!-- Nos permite realizar la operación desde html-->
                                     @csrf

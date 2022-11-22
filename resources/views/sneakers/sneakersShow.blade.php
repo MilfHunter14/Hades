@@ -12,9 +12,11 @@
                 <div class="separar">
                 <div class="row g-0">
                     <div class="col-xl-6 d-none d-xl-block">
-                    <img src="/img/mostrarSneakers.jpg"
+                    @foreach ($sneaker->archivos as $archivo)
+                    <img src= "{{ \Storage::url($archivo->ubicacion)}}"
                         alt="Sample photo" class="img-fluid"
                         style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                    @endforeach
                     </div>
                     <div class="col-xl-6">
                 

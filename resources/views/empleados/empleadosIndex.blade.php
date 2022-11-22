@@ -2,8 +2,8 @@
 <html lang="en">
 <x-head titulo="Empleados">
 
-    <x-navbar></x-navbar>
 
+    <x-navbar></x-navbar>
 
         <!-- ======= Hero Section ======= -->
         <section>
@@ -69,7 +69,7 @@
 
                             <td> 
                                 <!--action lo manda al método DELETE-->
-                                <form method="POST" action="/empleado/{{ $empleado->id }}">
+                                <form class="form-eliminar" method="POST" action="/empleado/{{ $empleado->id }}">
 
                                     <!-- Nos permite realizar la operación desde html-->
                                     @csrf
@@ -86,6 +86,7 @@
                 </table>
             </div>
         </section><!-- End Hero -->
+
  
 </x-head>
 </html>
