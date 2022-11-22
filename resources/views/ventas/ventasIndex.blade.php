@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <x-head titulo="Ventas">
-
+    
     <x-navbar></x-navbar>
-
 
         <!-- ======= Hero Section ======= -->
         <section class="table-responsive-md">
@@ -74,7 +73,7 @@
 
                             <td> 
                                 <!--action lo manda al método DELETE-->
-                                <form method="POST" action="/venta/{{ $venta->id }}">
+                                <form class="form-eliminar" method="POST" action="/venta/{{ $venta->id }}">
 
                                     <!-- Nos permite realizar la operación desde html-->
                                     @csrf

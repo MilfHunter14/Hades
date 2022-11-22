@@ -17,12 +17,13 @@
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('librerias/Font/css/all.css')}}">
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     
-  
 
 </head>
 <body>
     {{ $slot }}
+
     <!-- Vendor JS Files -->
   <script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
   <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -35,4 +36,11 @@
   <!-- Template Main JS File -->
   <script src="{{asset('assets/js/main.js')}}"></script>
   <script src="{{asset('assets/js/boostrap1.js')}}"></script>
+  <!-- Sweetalert -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+  <x-alerta-eliminar></x-alerta-eliminar>
+  <x-alerta-papelera></x-alerta-papelera>
+
 </body>

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Venta;
-use App\Models\Empleado;
 use App\Models\Sneaker;
+use App\Models\Empleado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -148,10 +148,15 @@ class VentaController extends Controller
         //La información viene de index y se elimina.
         $venta->delete();
         
-        return redirect('/venta');
+        $venta_id = $venta->id;
+
+        return redirect('/venta')->with([
+            'deletePapelera' => 'La venta con el ID: '. $venta_id . ' ha sido enviado a la papelera correctamente.'
+        ]);
+        
     }
 
-    /* Agregamos las funciones con las cuales nestros softDeletes podrán funcionar de manera correcta */
+    /* Agregamos las funciones con las cuales nuestros softDeletes podrán funcionar de manera correcta */
     public function ventasPapelera(){
         $ventas = Venta::onlyTrashed()->get();
         return view('ventas/ventasPapelera', compact('ventas'));
@@ -168,6 +173,9 @@ class VentaController extends Controller
         $venta = Venta::withTrashed()->find($id);
         $venta->forceDelete();
 
-        return redirect('/ventasPapelera');
+        $venta_id = $venta->id;
+        return redirect('/ventasPapelera')->with([
+            'delete' => 'La venta con el ID: '. $venta_id . ' ha sido eliminado del sistema correctamente.'
+        ]);
     }
 }
