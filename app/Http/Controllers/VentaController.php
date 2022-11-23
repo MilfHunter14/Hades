@@ -67,7 +67,9 @@ class VentaController extends Controller
         //El attach() permite recibir un solo id o un arreglo  de id
         $venta->sneakers()->attach($request->sneakers_id);
 
-        return redirect('/venta');
+        return redirect('/venta')->with([
+            'insertar' => 'La venta se ha insertado con éxito en la base de datos.'
+        ]);
     }
 
     /**
@@ -128,7 +130,10 @@ class VentaController extends Controller
         //Sincroniza el arreglo recibido de la base de datos
         $venta->sneakers()->sync($request->sneakers_id); 
         
-        return redirect('/venta');
+        $venta_id = $venta->id;
+        return redirect('/venta')->with([
+            'editar' => 'La venta con el ID: '. $venta_id . ' ha sido editada en el sistema correctamente.'
+        ]);
     }
 
     /**
@@ -168,7 +173,10 @@ class VentaController extends Controller
         $venta = Venta::withTrashed()->find($id);
         $venta->restore();
 
-        return redirect('/venta');
+        $venta_id = $venta->id;
+        return redirect('/venta')->with([
+            'restaurar' => 'La venta con el ID: '. $venta_id . ' ha sido restaurada al sistema correctamente.'
+        ]);
     }
 
     public function ventasDelete($id){
@@ -185,6 +193,8 @@ class VentaController extends Controller
     {
         Mail::to($venta->empleado->email)->send(new VentaRegistrada($venta));
 
-        return back();
+        return redirect('/venta')->with([
+            'correo' => 'La notificación ha sido enviada con éxito.'
+        ]);
     }
 }
