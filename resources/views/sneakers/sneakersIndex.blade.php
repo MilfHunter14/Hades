@@ -33,9 +33,6 @@
                     <th>Eliminar</th>
                 </tr>
             </thead>
-                @if (session('status'))
-                    <input type="text" name="status" value="{{session('status')}}" class="form-control" disabled>
-                @endif
                 @foreach($sneakers as $sneaker)
                 <tbody>
                 <tr>
