@@ -58,7 +58,11 @@ class EmpleadoController extends Controller
         Empleado::create($request->all());
 
         //Te redirecciona al index por método get
-        return redirect('/empleado');
+       /*  $empleado_id = $empleado->id; */
+        
+        return redirect('/empleado')->with([
+            'insertar' => 'El empleado se ha insertado con éxito en la base de datos.'
+        ]);
     }
 
     /**
@@ -110,7 +114,10 @@ class EmpleadoController extends Controller
         //La información viene de empleadosEdit.blade.php y se guarda
         Empleado::where('id', $empleado->id)->update($request->except('_token', '_method'));
 
-        return redirect('/empleado');
+        $empleado_id = $empleado->id;
+        return redirect('/empleado')->with([
+            'editar' => 'El empleado con el ID: '. $empleado_id . ' ha sido editado en el sistema correctamente.'
+        ]);
     }
 
     /**
@@ -121,21 +128,24 @@ class EmpleadoController extends Controller
      */
     public function destroy(Empleado $empleado)
     {
-        $status='';
         $count=0;
-
+        $empleado_id = $empleado->id;
+        
         // Contamos los registros en las relaciones
         $count+=count($empleado->ventas);
         // Comprobamos si existen registros 
         if($count>0) {
-            $status =  'No puedes eliminar este empleado porque esta ligado a una venta, verifica el listado de ventas.';
+           /*  $status =  'No puedes eliminar este empleado porque esta ligado a una venta, verifica el listado de ventas.'; */
+            return redirect('/empleado')->with([
+                'validacion' => 'El empleado con el ID: '. $empleado_id . ' no puede ser eliminado ya que esta ligado a una venta, verifica el listado de ventas.'
+            ]);
             
         } else {
             // si no hay registros eliminamos
             $empleado->delete();
-            $status = "Empleado eliminado correctamente";
+            return redirect('/empleado')->with([
+                'delete' => 'El empleado con el ID: '. $empleado_id . ' ha sido eliminado del sistema correctamente.'
+            ]);
         }
-        //dd($status);
-        return redirect('/empleado')->with('status', $status);
     }
 }

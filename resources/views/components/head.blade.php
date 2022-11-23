@@ -42,5 +42,10 @@
 
   <x-alerta-eliminar></x-alerta-eliminar>
   <x-alerta-papelera></x-alerta-papelera>
-
+  <x-alerta-validacion-relacion></x-alerta-validacion-relacion>
+  <x-insertar></x-insertar>
+  <x-editar></x-editar>
+  <x-restaurar></x-restaurar>
+  <x-correo></x-correo>
+  
 </body>

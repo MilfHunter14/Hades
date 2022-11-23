@@ -70,9 +70,10 @@ class SneakerController extends Controller
             //Se guarda la instancia
             $sneaker->archivos()->save($imagen);
         }
-
-
-        return redirect('/sneaker');
+        
+        return redirect('/sneaker')->with([
+            'insertar' => 'El sneaker se ha insertado con éxito en la base de datos.'
+        ]);
     }
 
     /**
@@ -132,7 +133,10 @@ class SneakerController extends Controller
             }
         Sneaker::where('id', $sneaker->id)->update($request->except('_token', '_method'));
 
-        return redirect('/sneaker');
+        $sneaker_id = $sneaker->id;
+        return redirect('/sneaker')->with([
+            'editar' => 'El sneaker con el ID: '. $sneaker_id . ' ha sido editado en el sistema correctamente.'
+        ]);
     }
 
     /**
@@ -143,26 +147,26 @@ class SneakerController extends Controller
      */
     public function destroy(Sneaker $sneaker)
     {
-        
-        $status='';
         $count=0;
-
+        $sneaker_id = $sneaker->id;
+        
         // Contamos los registros en las relaciones
         $count+=count($sneaker->ventas);
         // Comprobamos si existen registros 
         if($count>0) {
-            $status =  'No puedes eliminar este sneaker porque esta ligado a una venta, verifica el listado de ventas.';
-            
+            return redirect('/sneaker')->with([
+                'validacion' => 'El sneaker con el ID: '. $sneaker_id . ' no puede ser eliminado ya que esta ligado a una venta, verifica el listado de ventas.'
+            ]);
         } else {
             /* Quitamos la relación que existe entre la tabla Sneaker y el id de archivos
             Para que a nivel de base de datos no nos arroje error de llave violada */
             $sneaker->archivos()->detach();
             // si no hay registros eliminamos
             $sneaker->delete();
-            $status = "Sneaker eliminado correctamente";
+            return redirect('/sneaker')->with([
+                'delete' => 'El sneaker con el ID: '. $sneaker_id . ' ha sido eliminado del sistema correctamente.'
+            ]);
         }
-        //dd($status);
-        return redirect('/sneaker')->with('status', $status);
     }
 }
 
