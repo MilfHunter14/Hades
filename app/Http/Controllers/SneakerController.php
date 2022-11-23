@@ -50,11 +50,12 @@ class SneakerController extends Controller
             'precio' => 'integer | min:1000' ,
             'talla' => 'required',
             'stock' => 'integer | min:0',
+            'imagen' => 'required',
         ]);
 
         $sneaker = Sneaker::create($request->all());
         /* Sneaker::create($request->all()); */
-
+        
         // Imágenes //
         //Verifica si el archivo es válido
         if ($request->file('imagen')->isValid())
@@ -150,12 +151,12 @@ class SneakerController extends Controller
             foreach($sneaker->archivos as $archivo){
                 $count2++;
                 $file = Archivo::whereId($archivo->id)->firstOrFail();
+                //En caso de que se suba más de un archivo, se eliminarán todos sus archivos relacionados
+                if($count2 > 0){
+                    unlink(public_path(Storage::url($file->ubicacion)));
+                }
             }
-            if($count2 > 0){
-                unlink(public_path(Storage::url($file->ubicacion)));
-            }
-            
-            // si no hay registros eliminamos
+
             $sneaker->delete();
         }
 

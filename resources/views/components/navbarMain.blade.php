@@ -18,9 +18,9 @@
           
               <li class="dropdown"><a href="#"><span>Gestión de Recursos</span><i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="/empleado">Agregar Empleado</a></li>
-                <li><a href="/sneaker">Agregar Sneaker</a></li>
-                <li><a href="/venta">Agregar Venta</a></li>
+                <li><a href="/empleado">Empleados</a></li>
+                <li><a href="/sneaker">Sneakers</a></li>
+                <li><a href="/venta">Ventas</a></li>
               </ul>
               <li>
                 <form action="{{ route('logout') }}" method="POST">

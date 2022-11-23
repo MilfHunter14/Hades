@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="imagen">Imagen</label>
-                                    <input class="form-control form-control-lg" type="file" name="imagen" id="imagen" value="{{old('imagen')}}">
+                                    <input class="form-control form-control-lg" type="file" name="imagen" id="imagen" value="{{old('imagen')}}" required>
                                     @error('imagen')
                                         <i>{{ $message}}</i>
                                     @enderror
