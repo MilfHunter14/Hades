@@ -57,13 +57,6 @@
                                         <i>{{ $message}}</i>
                                     @enderror
                                 </div>
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="imagen">Imagen</label>
-                                    <input class="form-control form-control-lg" type="file" name="imagen" id="imagen" value="{{ old('imagen') }}">
-                                    @error('imagen')
-                                        <i>{{ $message}}</i>
-                                    @enderror
-                                </div>
                                 <div class="d-flex justify-content-center">
                                     <button type=submit
                                     class="btn btn-warning btn-block btn-lg gradient-custom-4 text-body"><i class="fa-regular fa-circle-check"></i> Guardar</button>

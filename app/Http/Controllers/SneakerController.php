@@ -6,6 +6,7 @@ use App\Models\Sneaker;
 use App\Models\Archivo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 class SneakerController extends Controller
@@ -115,22 +116,6 @@ class SneakerController extends Controller
             'stock' => 'integer | min:0',
         ]);
         
-        // Imágenes //
-        //Verifica si el archivo es válido
-        if ($request->file('imagen')->isValid())
-            {
-                //Nos devolverá el path de la ubicación del archivo
-                $ubicacion = $request->imagen->store('public');
-                //Crea una instancia
-                $archivo = new Archivo();
-                //Se le asigna la ubicación
-                $archivo->ubicacion = $ubicacion;
-                //Se le asigna el nombre original
-                $archivo->nombre_original = $request->imagen->getClientOriginalName();
-
-                //Se guarda la instancia
-                $archivo->update(['imagen' => $sneaker->archivos()]);
-            }
         Sneaker::where('id', $sneaker->id)->update($request->except('_token', '_method'));
 
         $sneaker_id = $sneaker->id;
@@ -147,26 +132,36 @@ class SneakerController extends Controller
      */
     public function destroy(Sneaker $sneaker)
     {
+        $notification = '';
         $count=0;
+        $count2=0;
         $sneaker_id = $sneaker->id;
         
         // Contamos los registros en las relaciones
         $count+=count($sneaker->ventas);
         // Comprobamos si existen registros 
-        if($count>0) {
+        if($count>0) 
+        {
             return redirect('/sneaker')->with([
                 'validacion' => 'El sneaker con el ID: '. $sneaker_id . ' no puede ser eliminado ya que esta ligado a una venta, verifica el listado de ventas.'
             ]);
         } else {
-            /* Quitamos la relación que existe entre la tabla Sneaker y el id de archivos
-            Para que a nivel de base de datos no nos arroje error de llave violada */
-            $sneaker->archivos()->detach();
+            //Eliminar Imagenes relacionadas con empleado
+            foreach($sneaker->archivos as $archivo){
+                $count2++;
+                $file = Archivo::whereId($archivo->id)->firstOrFail();
+            }
+            if($count2 > 0){
+                unlink(public_path(Storage::url($file->ubicacion)));
+            }
+            
             // si no hay registros eliminamos
             $sneaker->delete();
-            return redirect('/sneaker')->with([
-                'delete' => 'El sneaker con el ID: '. $sneaker_id . ' ha sido eliminado del sistema correctamente.'
-            ]);
         }
+
+        return redirect('/sneaker')->with([
+            'delete' => 'El sneaker con el ID: '. $sneaker_id . ' ha sido eliminado del sistema correctamente.'
+        ]);
     }
 }
 
