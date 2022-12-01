@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('librerias/Font/css/all.css')}}">
     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
-    
+
 
 </head>
 <body>
@@ -47,5 +47,6 @@
   <x-editar></x-editar>
   <x-restaurar></x-restaurar>
   <x-correo></x-correo>
-  
+  <x-alerta-actualizar-imagen></x-alerta-actualizar-imagen>
+
 </body>

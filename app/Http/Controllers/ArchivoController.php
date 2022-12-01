@@ -32,11 +32,11 @@ class ArchivoController extends Controller
     public function update(Request $request, Archivo $archivo)
     {
         $request->validate([
-            'imagen' => 'required',    
+            'imagen' => 'required',
         ]);
 
         $file = Archivo::findOrFail($archivo->id);
-            
+
         if($request->hasFile('imagen')){
             //Se comprueba que exista la foto
             if(Storage::exists($file->ubicacion))
@@ -49,11 +49,9 @@ class ArchivoController extends Controller
         }
 
         $file->update($request->only('ubicacion','nombre_original'));
-        
+
         return redirect('/sneaker')->with([
-            'mensaje' => 'Imagen actualizado correctamente.',
-            'alert_type' => 'alert-primary',
-            'icon' => 'fas fa-check'
-        ]);  
+            'actualizarimagen' => 'Imagen actualizada correctamente.'
+        ]);
     }
 }
