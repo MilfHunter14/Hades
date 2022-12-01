@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('archivos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('sneaker_id');
+            $table->foreignId('sneaker_id')->constrained()->cascadeOnDelete();
             $table->string('ubicacion');
             $table->string('nombre_original');
             $table->timestamps();

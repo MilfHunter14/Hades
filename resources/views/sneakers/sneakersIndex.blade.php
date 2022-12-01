@@ -29,6 +29,7 @@
                     <th>Talla (cm)</th>
                     <th>Stock</th>
                     <th>Imagen</th>
+                    <th>Actualizar Imagen</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>
@@ -50,6 +51,11 @@
                     @foreach($sneaker->archivos as $archivo)
                         <img src= "{{ \Storage::url($archivo->ubicacion)}}" width="130px" height="100px">
                     @endforeach
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-primary" href="/archivo/{{ $archivo->id }}/edit">
+                            <i class="fa-regular fa-image"></i> Actualizar Imagen
+                        </a>
                     </td>
                     <td>
                         <a class="btn btn-warning" href="/sneaker/{{ $sneaker->id }}/edit">
