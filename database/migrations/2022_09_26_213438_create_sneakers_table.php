@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre'); 
             $table->string('marca');
             $table->integer('precio');
-            $table->float('talla');
+            $table->string('talla');
             $table->integer('stock');
         });
     }
